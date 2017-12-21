@@ -8,3 +8,10 @@
 .navbar-right{
     padding-top: 15px;
 }
+
+#googleMap{
+
+    height: 250px;
+    width:  450px;
+
+}
