@@ -1,0 +1,10 @@
+.navbar
+{
+   border-bottom: 1px solid black;
+}
+/* .container{
+    border: 1px solid black;
+} */
+.navbar-right{
+    padding-top: 15px;
+}
