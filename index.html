@@ -72,17 +72,21 @@
 <div class = "container">
         <!-- First Row -->
         <div class="row">
+            <!-- Column for the Button and Input -->
             <div class="col-md-6">
+                <!-- Location Input -->
                 <form class="form-inline">
                     <div class="form-group">
                         <label for="locationInput"></label>
                         <input type="text" class="form-control" id="locationInput" placeholder="Location">
                     </div>
-
+                    <!-- Sumbit button -->
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true" id ="search"></span></button>
                 </form> 
-                <br>    
+                <br>
+                <!-- Pass a nested row to get the map right under the search input -->
                 <div class= "row">
+                    <!-- Column for the Map -->
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -92,26 +96,30 @@
                         </div>
                     </div>
                 </div>
+                <!-- Another Nested Row underneath the button for the weather panel-->
                 <div class= "row">
+                    <!-- Column for the Weather-->
                     <div class="col-md-12">
                         <div class="panel panel-default">
+                            <!-- Panel Header -->
                             <div class="panel-heading">
                                 <h3>Weather</h3>
                             </div>
+
+                            <!-- Panel Body-->
                             <div class="panel-body" id="Weather">
-                                    <div class="city"></div> 
+                              <div class="city"></div> 
                                     <div class="wind"></div>
                                     <div class="humidity"></div>
                                     <div class="temp"></div>
                                     <div class="rain"></div>
-                                    
-                                  </body>
+                      </div>
 
-                            </div>
                         </div>
                     </div>
                 </div>                
             </div>
+            <!-- Second Column of the First Row for the Attractions -->
             <div class="col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -145,19 +153,14 @@
                               <div role="indoor" class="tab-pane" id="indoor">INDOOR ACTIVIIES HERE</div>
                               <!-- Third Button content for Outdoor Activities-->
                               <div role="outdoor" class="tab-pane" id="outdoor">OUTDOOR ACTIVITIES HERE</div>
-
                             </div>
-                          
-                          </div>
-                    </div>
-                    
-                    </div>
+                        </div>
+                    </div>    
                 </div>
             </div>
-
         </div>
-        
-    </div>
+    </div>        
+</div>
  <!-- Footer -->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
