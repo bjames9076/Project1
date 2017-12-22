@@ -19,3 +19,9 @@
 #footer{
     text-align: center;
 }
+
+.panel-body{
+
+padding: 40px;
+border: 40px;
+}
