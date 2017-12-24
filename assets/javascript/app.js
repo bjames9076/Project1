@@ -41,25 +41,7 @@ $(document).ready(function(){
           console.log("RAIN OR SHINE: " + response.weather["0"].main);
         });
     
-    // $.ajax({
-    //     url: queryURL,
-    //     method: "GET"
-    // }).done(function(response){
-    //     console.log(response);
-
-    //     var map = $("<iframe>");
-    //     map.attr('src', queryURL);
-    //     map.attr({width: '100%', height:'100%'});
-    //     $("#googleMap").append(map);
-    // })
-
-    // var map;
-    // function initMap() {
-    //   map = new google.maps.Map(document.getElementById('googleMap'), {
-    //     center: {lat: -34.397, lng: 150.644},
-    //     zoom: 8
-    //   });
-    // }
+    
 
 
 });
