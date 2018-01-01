@@ -1,6 +1,8 @@
 $(document).ready(function(){
   //declare destination and queryURL
 
+  var coordinates = [];
+
   function weather(){   
     // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
@@ -56,46 +58,90 @@ $(document).ready(function(){
       
     function initMap(lat, lng) {
       var mars = {lat: lat, lng: lng};
+      activities();
       var map = new google.maps.Map(document.getElementById('googleMap'), {
         zoom: 11,
         center: mars
       });
+      console.log("mars is");
       console.log(mars);
       var marker = new google.maps.Marker({
         position: mars,
         map: map
       });
-    }
 
-    function activities(){
-      var latitude = "";
-      var longitude = "";
-      function outdoorActivities(){
-        var outdoorURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitutde + "&radius=5000&keyword=park&key=AIzaSyCP0neI6D2EkBV5VcN14hmy3d4gILynpzk"
+      function activities(){
+        var latitude = mars.lat;
+        var longitude = mars.lng;
 
-        $.ajax({
-          url: outdoorURL,
-          method: "GET"
-        }) .done(function(response){
-          console.log(response);
-          $("#indoor").append("<h3>" + response.results.name + "</h3> <img src='"+ response.results.icon +"'> <ul> <li> Open Now? "+ response.results.opening_hours.open_now + "</li> <li> Rating: " + response.results.rating + "</li> <li>");
-        })
+        console.log("LATITUDE IS " + latitude);
+        outdoorActivities();
+        indoorActivities();
+
+        function outdoorActivities(){
+          var outdoorURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=5000&keyword=park&key=AIzaSyCP0neI6D2EkBV5VcN14hmy3d4gILynpzk"
+          console.log("ASFNJDSGDJFGADS");
+    
+          $.ajax({
+            url: outdoorURL,
+            method: "GET",
+            dataType: 'json',
+            cache: false
+          }) .done(function(response){
+            console.log(response);
+            $("#indoor").append("<h3>" + response.results.name + "</h3> <img src='"+ response.results.icon +"'> <ul> <li> Open Now? "+ response.results.opening_hours.open_now + "</li> <li> Rating: " + response.results.rating + "</li> <li>");
+          })
+        }
+        
+    
+        function indoorActivities(){
+          console.log("LAT AND LNG " + latitude + longitude);
+          var indoorURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=5000&keyword=park&key=AIzaSyCP0neI6D2EkBV5VcN14hmy3d4gILynpzk"
+    
+          $.ajax({
+            url: indoorURL,
+            method: "GET",
+            dataType: 'json',
+            cache: false
+          }) .done(function(response){
+            console.log(response);
+            $("#indoor").append("<h3>" + response.results.name + "</h3> <img src='"+ response.results.icon +"'> <ul> <li> Open Now? "+ response.results.opening_hours.open_now + "</li> <li> Rating: " + response.results.rating + "</li> </ul>");
+          })
+        }
       }
-      
 
-      function indoorActivities(){
-        var indoorURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitutde + "&radius=5000&keyword=park&key=AIzaSyCP0neI6D2EkBV5VcN14hmy3d4gILynpzk"
 
-        $.ajax({
-          url: indoorURL,
-          method: "GET"
-        }) .done(function(response){
-          console.log(response);
-          $("#indoor").append("<h3>" + response.results.name + "</h3> <img src='"+ response.results.icon +"'> <ul> <li> Open Now? "+ response.results.opening_hours.open_now + "</li> <li> Rating: " + response.results.rating + "</li> </ul>");
-        })
-      }
     }
   }
+
+  // function activities(){
+  //   var latitude = "";
+  //   var longitude = "";
+  //   function outdoorActivities(){
+  //     var outdoorURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=5000&keyword=park&key=AIzaSyCP0neI6D2EkBV5VcN14hmy3d4gILynpzk"
+
+  //     $.ajax({
+  //       url: outdoorURL,
+  //       method: "GET"
+  //     }) .done(function(response){
+  //       console.log(response);
+  //       $("#indoor").append("<h3>" + response.results.name + "</h3> <img src='"+ response.results.icon +"'> <ul> <li> Open Now? "+ response.results.opening_hours.open_now + "</li> <li> Rating: " + response.results.rating + "</li> <li>");
+  //     })
+  //   }
+    
+
+  //   function indoorActivities(){
+  //     var indoorURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitutde + "&radius=5000&keyword=park&key=AIzaSyCP0neI6D2EkBV5VcN14hmy3d4gILynpzk"
+
+  //     $.ajax({
+  //       url: indoorURL,
+  //       method: "GET"
+  //     }) .done(function(response){
+  //       console.log(response);
+  //       $("#indoor").append("<h3>" + response.results.name + "</h3> <img src='"+ response.results.icon +"'> <ul> <li> Open Now? "+ response.results.opening_hours.open_now + "</li> <li> Rating: " + response.results.rating + "</li> </ul>");
+  //     })
+  //   }
+  // }
 
 
 
