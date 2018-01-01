@@ -85,7 +85,7 @@ $(document).ready(function(){
           $.ajax({
             url: outdoorURL,
             method: "GET",
-            dataType: 'json',
+            dataType: 'jsonp',
             cache: false
           }) .done(function(response){
             console.log(response);
@@ -101,7 +101,7 @@ $(document).ready(function(){
           $.ajax({
             url: indoorURL,
             method: "GET",
-            dataType: 'json',
+            dataType: 'jsonp',
             cache: false
           }) .done(function(response){
             console.log(response);
