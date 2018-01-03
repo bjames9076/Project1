@@ -30,9 +30,9 @@ $(document).ready(function(){
       // Transfer content to HTML
       // $(".city").html("<h1>" + response.name + " Weather Details</h1>");
       $(".rain").text("RAIN OR SHINE: " + response.weather["0"].main);
-      $(".wind").text("Wind Speed: " + response.wind.speed);
-      $(".humidity").text("Humidity: " + response.main.humidity);
-      $(".temp").text("Temperature (F) " + response.main.temp);
+      $(".wind").text("Wind Speed: " + Math.floor(response.wind.speed) + " mph");
+      $(".humidity").text("Humidity: " + response.main.humidity + "%");
+      $(".temp").text("Temperature (F): " + Math.floor(response.main.temp));
             
     
       // Log the data in the console as well
@@ -57,7 +57,7 @@ $(document).ready(function(){
       console.log(response.results[0].geometry.location.lng);
     })
   }
-  
+
     function initMap(lat, lng) {
       var mars = {lat: lat, lng: lng};
       //activities();
