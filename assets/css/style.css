@@ -1,6 +1,13 @@
-.navbar
-{
-   border-bottom: 1px solid black;
+body {
+padding-bottom: 30px;
+}
+
+
+
+
+
+.nav-wrapper{
+    color: #5680E9;
 }
 /* .container{
     border: 1px solid black;
@@ -25,3 +32,31 @@
 padding: 40px;
 border: 40px;
 }
+.panel{
+
+}
+body {
+    background-color: #ECDCDC;
+    
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+.panel {
+background-color: #B37D4E;
+border-color: #ddd;
+}
+  
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
