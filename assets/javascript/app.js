@@ -1,3 +1,6 @@
+var map;
+var infowindow;
+
 $(document).ready(function(){
   //declare destination and queryURL
 
@@ -44,7 +47,7 @@ $(document).ready(function(){
     
   function map(){
     var destination = $("#locationInput").val().trim();
-    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + destination + "&key=AIzaSyDsM1Id3r1WfiYDha-f7fYJgEjRjO0hKl0&output=embed";
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + destination + "&key=AIzaSyDsM1Id3r1WfiYDha-f7fYJgEjRjO0hKl0&libraries=places";
   
     $.ajax({
       url: queryURL,
@@ -55,11 +58,11 @@ $(document).ready(function(){
       console.log(response.results[0].geometry.location.lat);
       console.log(response.results[0].geometry.location.lng);
     })
-      
+  }
     function initMap(lat, lng) {
       var mars = {lat: lat, lng: lng};
-      activities();
-      var map = new google.maps.Map(document.getElementById('googleMap'), {
+      //activities();
+      map = new google.maps.Map(document.getElementById('googleMap'), {
         zoom: 11,
         center: mars
       });
@@ -69,8 +72,54 @@ $(document).ready(function(){
         position: mars,
         map: map
       });
+      infowindow = new google.maps.InfoWindow();
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: mars,
+        radius: 500,
+        type: ['store']
+      }, callback);
 
-      function activities(){
+      service.nearbySearch({
+        location: mars,
+        radius: 5000,
+        type: ['park']
+      }, callbackOutDoor);
+    
+
+    function callback(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < 5; i++) {
+          createMarker(results[i]);
+          console.log(results[i]);
+          $("#indoor").append("<h3>" + results[i].name + "</h3> <img src='"+ results[i].icon +"'> <ul> <li> Open Now? "+ results[i].opening_hours.open_now + "</li> <li> Rating: " + results[i].rating + "</li> <li>")
+        }
+      }
+    }
+
+    function callbackOutDoor(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < 5; i++) {
+          createMarker(results[i]);
+          console.log(results[i]);
+          $("#outdoor").append("<h3>" + results[i].name + "</h3> <img src='"+ results[i].icon + "</li> <li> Rating: " + results[i].rating + "</li> <li>")
+        }
+      }
+    }
+
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    }
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
+  }
+      /*function activities(){
         var latitude = mars.lat;
         var longitude = mars.lng;
 
@@ -109,10 +158,11 @@ $(document).ready(function(){
           })
         }
       }
+      */
 
 
-    }
-  }
+    
+  
 
   // function activities(){
   //   var latitude = "";
