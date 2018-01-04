@@ -52,8 +52,8 @@ border: 40px;
 
 
 .panel {
-background-color: #B37D4E;
-border-color: #ddd;
+background-color: #6597A2;
+
 }
   
 .footer {
@@ -62,4 +62,7 @@ border-color: #ddd;
     bottom: 0;
     left: 0;
     text-align: center;
+  }
+  img {
+      border-radius: 50%;
   }
