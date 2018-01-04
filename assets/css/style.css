@@ -1,20 +1,36 @@
 body {
-padding-bottom: 30px;
+    padding-bottom: 30px;
+    background-color: #ECDCDC;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
+main {
+    flex: 1 0 auto;
+}
 
+h2, h4 {
+    text-align: center;
+    color: #ee6e73;
+}
 
+#myPanel{
+    margin-top: 50px;
+}
 
+#members {
+    text-align: center;
+}
 
-.nav-wrapper{
+/* .nav-wrapper{
     color: #5680E9;
-}
-/* .container{
-    border: 1px solid black;
 } */
+
 .navbar-right{
     padding-top: 15px;
 }
+
 
 #googleMap{
 
@@ -23,31 +39,18 @@ padding-bottom: 30px;
     text-align: center;
 
 }
+
 #footer{
     text-align: center;
+    color: black;
 }
 
 .panel-body{
-
 padding: 40px;
 border: 40px;
 }
-.panel{
 
-}
-body {
-    background-color: #ECDCDC;
-    
-}
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 
-  main {
-    flex: 1 0 auto;
-  }
 .panel {
 background-color: #B37D4E;
 border-color: #ddd;
