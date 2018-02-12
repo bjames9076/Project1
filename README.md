@@ -1,5 +1,5 @@
 # DirtyCoders
-Group Project - Team Members: Brian Elliston, Ramon Munoz, Sarah Avwata, Gabriel Figarella
+Group Project - Team Members: Brian Elliston, Ramon Munoz, Sarah Avwata, Gabriel Figarella, Brandon James
 
 * In this group project we'll work towards creating a travel advisory - like app.
 * We came up with the problem: "We come to Florida for the amazing sunny weather, but then it rains ..... so what now?"
